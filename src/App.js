@@ -1,15 +1,15 @@
 import "./App.css";
-import useMousePosition from "./hooks/use-mouse-position";
+import useIsOnScreen from "./hooks/use-is-on-screen";
 
 function App() {
-  const { x, y } = useMousePosition();
+  const [isOnScreen, elementRef] = useIsOnScreen();
 
   return (
     <div className="App">
-      <h1>Custom Hook</h1>
-      <h2>
-        x: {x} y: {y}
-      </h2>
+      <header>Red box Visible: {isOnScreen ? "On" : "Off"}</header>
+      <div className="wrapper">
+        <div className="red box" ref={elementRef} />
+      </div>
     </div>
   );
 }
