@@ -1,14 +1,15 @@
 import "./App.css";
-import useTime from "./hooks/use-time";
-import { format } from "date-fns";
+import useMousePosition from "./hooks/use-mouse-position";
 
 function App() {
-  const time = useTime();
+  const { x, y } = useMousePosition();
 
   return (
     <div className="App">
-      <h1>Current Time</h1>
-      <p>{format(time, "hh:mm:ss a")}</p>
+      <h1>Custom Hook</h1>
+      <h2>
+        x: {x} y: {y}
+      </h2>
     </div>
   );
 }
